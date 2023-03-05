@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<body>
+<div align="center">
+	<br/>
+    http:<input type="text" id="httpType" value="http"/><br/><br/>
+    ip:<input type="text" id="ipstr" value=""/><br/>
+    <br/>
+    port:<input type="text" id="portstr" value=""><br/><br/>
+    <input type="button" value="goto" id="go" onclick="gotolink()"/>
+    <br/><br/><br/>
+    <div id="showtxt" style="width:100px;word-wrap: break-word;"></div>
+</div>
+</body>
+<script>
+    function gotolink() {
+        var httpType = document.getElementById("httpType").value.trim();
+        var ipstr = document.getElementById("ipstr").value.trim();
+        var portstr = document.getElementById("portstr").value.trim();
+        var url = httpType + "://[" + ipstr + "]" + ":" + portstr;
+        console.log(url);
+        var showtxt=document.getElementById("showtxt");
+        showtxt.innerText=url
+        window.open(url, "_blank");
+    }
+</script>
+</html>
