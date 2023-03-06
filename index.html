@@ -13,7 +13,7 @@
     ipv6:<input type="text" id="ipstr" value=""/><br/>
     <br/>
     port:<input type="text" id="portstr" value=""><br/><br/>
-    <input type="button" value="goto" id="go" onclick="gotolink()"/>
+    <input type="button" value="switch" id="go" onclick="gotolink()"/>
     <br/><br/><br/>
     <div id="showtxt" style="width:100px;word-wrap: break-word;"></div>
 </div>
@@ -27,7 +27,7 @@
         console.log(url);
         var showtxt=document.getElementById("showtxt");
         showtxt.innerText=url
-        window.open(url, "_blank");
+        //window.open(url, "_blank");
     }
 </script>
 </html>
