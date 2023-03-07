@@ -14,8 +14,8 @@
     <br/>
     port:<input type="text" id="portstr" value=""><br/><br/>
     <input type="button" value="switch" id="go" onclick="gotolink()"/>
-    <br/><br/><br/>
-    <div id="showtxt" style="width:100px;word-wrap: break-word;"></div>
+    <br/><br/><br/><br/><br/>
+    <div id="showtxt" style="width:200px;word-wrap: break-word;"></div>
 </div>
 </body>
 <script>
@@ -24,9 +24,10 @@
         var ipstr = document.getElementById("ipstr").value.trim();
         var portstr = document.getElementById("portstr").value.trim();
         var url = httpType + "://[" + ipstr + "]" + ":" + portstr;
-        console.log(url);
+        //console.log(url);
         var showtxt=document.getElementById("showtxt");
-        showtxt.innerText=url
+	var ht="<a href="+url+"/>";
+        showtxt.innerHTML=url;
         //window.open(url, "_blank");
     }
 </script>
