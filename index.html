@@ -20,15 +20,20 @@
 </body>
 <script>
     function gotolink() {
-        var httpType = document.getElementById("httpType").value.trim();
-        var ipstr = document.getElementById("ipstr").value.trim();
-        var portstr = document.getElementById("portstr").value.trim();
-        var url = httpType + "://[" + ipstr + "]" + ":" + portstr;
-        //console.log(url);
-        var showtxt=document.getElementById("showtxt");
-	var ht="<a href='"+url+"'>"+url+"</a>";
-        showtxt.innerHTML=ht;
-        //window.open(url, "_blank");
-    }
+        var showtxt = document.getElementById("showtxt");
+        showtxt.innerHTML = "";
+        var httpType = document.getElementById("httpType").value;
+        var ipstr = document.getElementById("ipstr").value;
+        var portstr = document.getElementById("portstr").value;
+        let split = ipstr.split("inet6");
+        split.forEach(each => {
+            if (each.trim().length > 0) {
+                let index = each.indexOf("prefixlen");
+                let ips = each.substring(0, index).trim();
+                var url = httpType + "://[" + ips + "]" + ":" + portstr;
+                var ht = "<a href='" + url + "'>" + url + "</a>";
+                showtxt.innerHTML += ht + "<br/>";
+            }
+        });
 </script>
 </html>
