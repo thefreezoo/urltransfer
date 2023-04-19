@@ -10,7 +10,7 @@
 <div align="center">
 	<br/>
     http:<input type="text" id="httpType" value="http"/><br/><br/>
-    ipv6:<input type="text" id="ipstr" value=""/><br/>
+    ipv6:<textarea id="ipstr" value="" style="height: 100px"></textarea><br/>
     <br/>
     port:<input type="text" id="portstr" value=""><br/><br/>
     <input type="button" value="switch" id="go" onclick="gotolink()"/>
@@ -25,6 +25,12 @@
         var httpType = document.getElementById("httpType").value;
         var ipstr = document.getElementById("ipstr").value;
         var portstr = document.getElementById("portstr").value;
+	    if (ipstr.startsWith("2")) {
+            var url = httpType + "://[" + ipstr + "]" + ":" + portstr;
+            var ht = "<a href='" + url + "'>" + url + "</a>";
+            showtxt.innerHTML += ht + "<br/>";
+            return;
+        }
         let split = ipstr.split("inet6");
         split.forEach(each => {
             if (each.trim().length > 0) {
